@@ -12,7 +12,8 @@ int _printf(const char *format, ...)
 	va_list args;
 	specif_t specif[] = {
 		{"s", print_str}, {"c", print_char},
-		{"%", print_percent}, {NULL, NULL}
+		{"%", print_percent}, {"d", print_num},
+		{"i", print_num}, {NULL, NULL}
 	};
 
 	va_start(args, format);
