@@ -19,17 +19,24 @@ int print_num(va_list args)
 		value = -value;
 	}
 
-	do {
-		buffer[j++] = '0' + (value % 10);
-		value /= 10;
-		i++;
+	if (value == 0)
+	{
+		buffer[j++] = '0';
 	}
-
-	while (value > 0);
+	else
+	{
+		while (value > 0)
+		{
+			buffer[j++] = (value % 10) + '0';
+			value /= 10;
+		}
+	}
 
 	for (f = j - 1; f >= 0; f--)
 	{
 		my_putchr(buffer[f]);
+		i++;
 	}
+	
 	return (i);
 }
