@@ -9,7 +9,7 @@
 int print_binary(va_list args)
 {
 
-	unsigned int value = va_arg(args, unsigned int); 
+	unsigned int value = va_arg(args, unsigned int);
 	int i = 0, len = 0;
 	char buffer[32];
 
@@ -18,17 +18,17 @@ int print_binary(va_list args)
 		return my_putchr('0');
 	}
 
-	for (;value > 0; buffer[i++] = (value % 2) + '0')
+	for (; value > 0; buffer[i++] = (value % 2) + '0')
 	{
-		value /=2;
+		value /= 2;
 	}
 
-	while (i--)
+	while (i > 0)
 	{
-		my_putchr(buffer[i]);
-		len ++;
+		my_putchr(buffer[--i]);
+		len++;
 	}
 
-	return len;
+	return (len);
 }
 
