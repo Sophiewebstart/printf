@@ -1,36 +1,34 @@
 #include "main.h"
-int print_rec_bin(unsigned int i);
 
 /**
   * print_binary - prints an unsigned int argument converted to binary
   * to standard output
   * @args:  variable arguements to be passed to the function
+  * Return: number of characters printed
   */
 int print_binary(va_list args)
 {
-	unsigned int i = va_arg(args, unsigned int);
 
-	if (i == 0)
+	unsigned int value = va_arg(args, unsigned int); 
+	int i = 0, len = 0;
+	char buffer[32];
+
+	if (value == 0)
 	{
 		return my_putchr('0');
 	}
-	
-	return print_rec_bin(i);
-}
 
-/**
-  * print_rec_bin - recursively prints an unsigned int in binary
-  * @i: number to print
-  */
-int print_rec_bin(unsigned int i)
-{
-	int len = 0;
-
-	if (i / 2)
+	for (;value > 0; buffer[i++] = (value % 2) + '0')
 	{
-		len += print_rec_bin(i / 2);
+		value /=2;
 	}
-	
-	my_putchr((i % 2) + '0');
-	return (len);
+
+	while (i--)
+	{
+		my_putchr(buffer[i]);
+		len ++;
+	}
+
+	return len;
 }
+

@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	specif_t specif[] = {
 		{"s", print_str}, {"c", print_char},
 		{"%", print_percent}, {"d", print_num},
-		{"i", print_num}, {"d", print_binary}, {NULL, NULL}
+		{"i", print_num}, {"b", print_binary}, {NULL, NULL}
 	};
 
 	va_start(args, format);
